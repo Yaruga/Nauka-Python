@@ -1,7 +1,12 @@
-#20. Write a Python program to print a dictionary line by line.
-rodzinka = {'Andrzej': {'zawod': 'ojciec', 'kierunek':'wszechswiat'}, 'Marjola': {'zawod':'kosmonauta', 'kierunek':'nieznany'}}
-for a in rodzinka:
-    print(a)
+#20. Write a Python program to print the alphabet pattern 'D'.
 
-    for b in rodzinka[a]:
-        print(b, ":", rodzinka[a][b])
+wynik = ""
+for cos in range(0, 7):
+    for column in range(0, 7):
+        if (column == 1 or ((cos == 0 or cos == 6) and (column > 1 and column < 5)) or (column == 5 and cos != 0 and cos != 6)):
+            wynik = wynik + "*"  
+        else:
+            wynik = wynik + " "  
+
+    wynik = wynik + "\n"  
+print(wynik)

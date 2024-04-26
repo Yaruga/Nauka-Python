@@ -1,0 +1,254 @@
+#1. Write a Python program to find those numbers which are divisible by 7 and multiples of 5, between 1500 and 2700 (both included). 
+
+wynik = []
+for x in range(1500, 2701):
+    if (x % 7 == 0) and (x % 5 ==0):
+        wynik.append(str(x))
+    print(','.join(wynik))
+
+#2. Write a Python program to guess a number between 1 and 9. 
+import random
+liczba, przypadek = random.randint(1,10),0
+while liczba != przypadek:
+    przypadek = int(input('Zagrajmy w grę, losuj numer od 1 do 10: '))
+
+print('Elegancko')
+
+#3. Write a Python program that accepts a word from the user and reverses it. 
+
+słowo = input("Co mam mistrzu odwrócić? ")
+for zmiana in range(len(słowo) - 1, -1, -1):
+    print(słowo[zmiana], end="")
+print("\n")
+
+#4. Write a Python program to count the number of even and odd numbers in a series of numbers
+
+cyferki = (1,2,3,4,5,6,7,8,9)
+liczby_od = 0
+liczby_z = 0
+
+for x in cyferki:
+    if not x % 2:
+        liczby_z += 1
+    else:
+        liczby_od +=1
+print("parzysta: ", liczby_z)
+print("Nieparzyste: ", liczby_od)
+
+#5. Write a Python program that prints each item and its corresponding type from the following list.
+#Sample List : datalist = [1452, 11.23, 1+2j, True, 'w3resource', (0, -1), [5, 12], {"class":'V', "section":'A'}]
+
+lista = [1452, 11.23, 1+2j, True, 'w3resource', (0,-1), [5, 12], {'class': 'V', 'section': 'A'}]
+
+for item in lista:
+    print('Typ', item, 'to', type(item))
+
+#6. Write a Python program that prints all the numbers from 0 to 6 except 3 and 6.
+
+for x in range(6):
+    if (x == 3 or x==6):
+        continue
+    print(x,end=' ')
+print("\n")
+
+#7. Write a Python program to get the Fibonacci series between 0 and 50.
+
+x, y = 0,1
+while y < 50:
+    print(y)
+    
+    x, y = y, x + y
+
+#8. Write a Python program that iterates the integers from 1 to 50. 
+#For multiples of three print "Fizz" instead of the number and for multiples of five print "Buzz". 
+#For numbers that are multiples of three and five, print "FizzBuzz".
+
+for fizzbuzz in range(51):
+    if fizzbuzz % 3 == 0 and fizzbuzz % 5 == 0:
+        print('fizzbuzz')
+        continue
+    elif fizzbuzz % 3 == 0:
+        print('fizz')
+        continue
+    elif fizzbuzz % 5 == 0:
+        print("buzz")
+        continue
+    print(fizzbuzz)
+
+#9. Write a Python program that accepts a string and calculates the number of digits and letters.
+
+q = input('Tu będzie string: ')
+w = e = 0
+for c in q:
+    if c.isdigit():
+        w = w + 1
+    elif c.isalpha():
+        e = e + 1
+    else:
+        pass
+
+print("literka", e)
+print("Cyferka", w)
+
+#10. Write a Python program to calculate a dog's age in dog years.
+#Note: For the first two years, a dog year is equal to 10.5 human years. After that, each dog year equals 4 human years.
+
+wiek = int(input("Podaj wiek psa: "))
+if wiek < 0 :
+    print("Podaj cyfre większa od 0")
+    exit()
+elif wiek <= 2:
+    psie_lata = wiek * 10.5
+else:
+    psie_lata = 21 + (wiek - 2) * 4
+
+print("W psich latach wychodzi: ", psie_lata)
+
+#11. Write a Python program to convert a month name to a number of days.
+print("Lista miesięcy: Stycznia, Luty, Marzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, listopad, Grudzień")
+nazwa_miesiąca = input("Podaj nazwe miesiąca:")
+if nazwa_miesiąca == "Luty":
+    print("Liczba dnia: 28/29")
+elif nazwa_miesiąca in ("Kwiecień", "Czerwiec", "Wrzesień", "Listopad"):
+    print("Liczba dni to: 30")
+elif nazwa_miesiąca in ("Styczeń", "Marzec", "Maj", "Lipiec", "Sierpień", "Październik", "Grudzień"):
+    print("Liczba dni to: 31")
+else:
+    print("Podana nazwa jest nieprawidłowa")
+
+#12. Write a Python program to sum two integers. However, if the sum is between 15 and 20 it will return 20.
+
+def suma(x,y):
+    sum = x + y
+    if sum in range(15,20):
+        return 20
+    else:
+        return sum
+print(suma(10,6))
+print(suma(10,2))
+print(suma(10,12))
+
+#13. Write a Python program to check if a triangle is equilateral, isosceles or scalene.
+#Note :
+#An equilateral triangle is a triangle in which all three sides are equal.
+#A scalene triangle is a triangle that has three unequal sides.
+#An isosceles triangle is a triangle with (at least) two equal sides.
+print('Podaj wartość: ')
+x = int(input('x: '))
+y = int(input('y: '))
+z = int(input('z: '))
+if x == y == z:
+    print('Trójkąt równoboczny')
+elif x == y or y ==z or z == x:
+    print('Trójkąt równoramienny')
+else:
+    print('trójkąt różnoboczny')
+
+#14. Write a Python program to find the median of three values.
+a = float(input("Poporsze pierwsza liczbę: "))
+b = float(input("Poporsze druga liczbę: "))
+c = float(input("Poprsze trzecią liczbę: "))
+
+if a > b:
+    if a < c:
+        median = a
+    elif b > c:
+        median = b
+    else:
+        median = c
+else:
+    if a > c:
+        median = a
+    elif b < c:
+        median = b
+    else:
+        median = c
+
+print("Mediana wynosi: ", median)
+
+
+#15. Write a Python program to display the sign of the Chinese Zodiac for the given year in which you were born. 
+
+year = int(input("Input your birth year: "))
+if (year - 2000) % 12 == 0:
+    sign = 'Dragon'
+elif (year - 2000) % 12 == 1:
+    sign = 'Snake'
+elif (year - 2000) % 12 == 2:
+    sign = 'Horse'
+elif (year - 2000) % 12 == 3:
+    sign = 'Sheep'
+elif (year - 2000) % 12 == 4:
+    sign = 'Monkey'
+elif (year - 2000) % 12 == 5:
+    sign = 'Rooster'
+elif (year - 2000) % 12 == 6:
+    sign = 'Dog'
+elif (year - 2000) % 12 == 7:
+    sign = 'Pig'
+elif (year - 2000) % 12 == 8:
+    sign = 'Rat'
+elif (year - 2000) % 12 == 9:
+    sign = 'Ox'
+elif (year - 2000) % 12 == 10:
+    sign = 'Tiger'
+else:
+    sign = 'Hare'
+print("Your Zodiac sign :", sign) 
+
+#16.Write a Python program to calculate the sum and average of n integer numbers (input from the user). Input 0 to finish.
+
+print("Wprowadź kilka liczb całkowitych, aby obliczyć ich sumę i średnią. Wprowadź 0, aby wyjść.")
+
+wynik = 0
+sum = 0.0
+number = 1
+while number != 0:
+    number = int(input(""))
+    sum = sum + number
+    wynik += 1
+if wynik == 0:
+    print("Input some numbers")
+else:
+    print("Średnia i suma powyższych liczb to: ", sum / (wynik-1), sum)
+
+#17. Write a Python program to create the multiplication table (from 1 to 10) of a number.
+
+q = int(input("Podaj liczbę: "))
+for t in range(1,11):
+    print(q, 'x', t, '=', q * t)
+
+
+#18. Write a Python program to construct the following pattern, using a nested loop number.
+
+for t in range(10):
+    print(str(t) * t)
+
+
+#19. Write a Python program to print the alphabet pattern 'A'.
+wynik = ""
+for cos in range(0, 7):
+    for column in range(0, 7):
+        if (((column == 1 or column == 5) and cos != 0) or ((cos == 0 or cos == 3) and (column > 1 and column < 5))):
+            wynik = wynik + "*"  
+        else:
+            wynik = wynik + " "  
+    
+    wynik = wynik + "\n"  
+
+print(wynik) 
+
+
+
+#20. Write a Python program to print the alphabet pattern 'D'.
+
+wynik = ""
+for cos in range(0, 7):
+    for column in range(0, 7):
+        if (column == 1 or ((cos == 0 or cos == 6) and (column > 1 and column < 5)) or (column == 5 and cos != 0 and cos != 6)):
+            wynik = wynik + "*"  
+        else:
+            wynik = wynik + " "  
+
+    wynik = wynik + "\n"  
+print(wynik)
