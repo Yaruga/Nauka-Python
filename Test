@@ -1,9 +1,5 @@
-#20. Write a Python function to reverse a string if its length is a multiple of 4.
+#20.Write a Python program to convert a list of characters into a string.
 
-def zmiana(to):
-    if len(to) % 4 == 0:
-        return ''.join(reversed(to))
-    return to
-print(zmiana('Cokolwiek'))
-print(zmiana('Cokolwie'))
-    
+to = ['q','w','e','r','t','y']
+stringg = ''.join(to)
+print(stringg)

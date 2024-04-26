@@ -1,0 +1,166 @@
+#1. Write a Python program to sum all the items in a list.
+
+def suma(lista):
+    liczba = 0
+    for x in lista:
+        liczba += x
+    return liczba
+print(suma([22,12,15]))
+
+#2. Write a Python program to multiply all the items in a list.
+
+def multi(to):
+    potega = 1
+    for x in to:
+        potega *= x
+    return potega
+print(multi([1,13,-4]))
+
+#3. Write a Python program to get the largest number from a list.
+
+def max_liczba(to):
+    max = to[0]
+    for b in to:
+        if b > max:
+            max = b
+    return max
+print(max_liczba([1,21,3123,444,-2]))
+
+#4. Write a Python program to get the smallest number from a list.
+
+def najmniejsza(to):
+    min = to[0]
+    for a in to:
+        if a < min:
+            min = a
+    return min
+print(najmniejsza([11,32132,9,-1]))
+
+#5. Write a Python program to count the number of strings from a given list of strings.
+#The string length is 2 or more and the first and last characters are the same.
+
+def ile(to):
+    liczba = 0
+    for slowo in to:
+        if len(slowo) > 1 and slowo[0] == slowo[-1]:
+            liczba += 1
+    return liczba
+print(ile(['to jest','cokowiek','napisane']))
+
+#6. Write a Python program to get a list, sorted in increasing order by the last element in each tuple from a given list of non-empty tuples.
+
+def ostatnia(w):
+    return w[-1]
+
+def liste(tupli):
+    return sorted(tupli, key=ostatnia)
+
+print(ostatnia([(11,5),(22,1),(7,21)]))
+
+#7. Write a Python program to remove duplicates from a list.
+
+z = [1, 2, 3, 4, 4, 5, 6, 66, 4, 44, 44]
+
+duplikacja = set()
+nie_duplikat = []
+for x in z:
+    if x not in duplikacja:
+        nie_duplikat.append(x)
+        duplikacja.add(x)
+
+print(duplikacja)
+
+#8. Write a Python program to check if a list is empty or not.
+
+w = []
+if not w:
+    print('pustostan')
+
+#9. Write a Python program to clone or copy a list.
+
+lista1 = [1, 2, 3, 4, 5, 6, 7]
+lista2 = list(lista1)
+print(lista1)
+print(lista2)
+
+#10. Write a Python program to find the list of words that are longer than n from a given list of words.
+
+def dlugosc(n, to):
+    dlugosc_wyrazu = []
+    tekst = to.split(" ")
+    for x in tekst:
+        if len(x) > n:
+            dlugosc_wyrazu.append(x)
+    return dlugosc_wyrazu
+print(dlugosc(3, "Cokolwiek to jest powinienm sie zatrzymac i zlapac oddech"))
+
+#11. Write a Python function that takes two lists and returns True if they have at least one common member.
+
+def powtorka(lista1, lista2):
+    wynik = False
+    for x in lista1:
+        for y in lista2:
+            if x == y:
+                wynik = True
+                return wynik
+print(powtorka([11,2,33,2,1], [11,2,2,333,4,5,1]))
+
+#12. Write a Python program to print a specified list after removing the 0th, 4th and 5th elements.
+
+owoce = ['marchewka','pomidor','mango','banan','ogorek','truskawka']
+owoce = [i for (w, i) in enumerate(owoce) if w not in (0,4,5)]
+print(owoce)
+
+#13. Write a Python program to generate a 3*4*6 3D array whose each element is *.
+
+array = [[['*' for kolor in range(6)] for kolor in range(4)] for skosik in range(3)]
+print(array)
+
+#.14 Write a Python program to print the numbers of a specified list after removing even numbers from it.
+
+cyferka = [1, 2, 3, 12, 13, 22, 33, 44]
+cyferka = [x for x in cyferka if x % 2!=0]
+print(cyferka)
+
+#15.Write a Python program to shuffle and print a specified list. 
+
+from random import shuffle
+owoce = ['banan','jablko','kiwi','majonez']
+shuffle(owoce)
+print(owoce)
+
+#16. Write a Python program to generate and print
+#a list of the first and last 5 elements where the values are square numbers between 1 and 30 (both included). 
+
+def wartosci():
+    l = list()
+    for i in range(1,21):
+        l.append(i**2)
+    print(l[:5])
+    print(l[-5:])
+wartosci()
+
+#17. Write a Python program to generate all permutations of a list in Python.
+import itertools
+print(list(itertools.permutations([3,2,3])))
+
+#18.Write a Python program to calculate the difference between the two lists.
+
+lista_pierwsza = [1,2,3,4,5]
+lista_druga = [4,5,6,7,8]
+inna_pierwsza_lista = list(set(lista_pierwsza) - set(lista_druga))
+inna_druga_lista = list(set(lista_druga) - set(lista_pierwsza))
+roznica = inna_pierwsza_lista + inna_druga_lista
+print(roznica)
+
+#19. Write a Python program to access the index of a list.
+
+cyferki = [5,20,30,40,50,60]
+for index, wartosc in enumerate(cyferki):
+    print(index, wartosc)
+
+#20.Write a Python program to convert a list of characters into a string.
+
+to = ['q','w','e','r','t','y']
+stringg = ''.join(to)
+print(stringg)
