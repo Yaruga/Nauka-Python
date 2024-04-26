@@ -1,0 +1,142 @@
+#1. Write a Python program to add a key to a dictionary.
+
+q = {'To' : 10, 'Owo': 20}
+print(q)
+q.update({'To i owo': 6})
+print(q)
+
+#2. Write a Python script to concatenate the following dictionaries to create a new one. 
+jedynka = {10:10,20:20}
+dwojka = {30:30,40:40}
+trojka = {50:50,60:60}
+czworka = {}
+for x in (jedynka,dwojka,trojka):
+    czworka.update(x)
+print(czworka)
+
+#3. Write a Python script to concatenate the following dictionaries to create a new one. 
+q = {1: 10, 2:  20, 3: 30, 4: 40}
+def klucz(x):
+    if x in q:
+        print('klucz istnieje')
+    else:
+        print('Klucz nie istnieje')
+klucz(5)
+klucz(2)
+
+#4.Write a Python program to iterate over dictionaries using for loops.
+
+q = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+for klucz, wartosc in q.items():
+    print(klucz, '--', wartosc)
+
+ #5.Write a Python script to generate and print a dictionary that contains a number (between 1 and n) in the form (x, x*x).
+q = int(input('Wpisz cyfre '))
+d = dict()
+for x in range(1, q + 1):
+    d[x] = x * x
+print(d)
+
+#6.Write a Python script to print a dictionary where the keys are numbers between 1 and 15 (both included) and the values are the square of the keys.
+
+d = dict()
+for x in range(1,16):
+    d[x] = x ** 2
+print(d)
+
+#7.Write a Python script to merge two Python dictionaries.
+
+d1 = {'a': 50, 'b': 150}
+d2 = {'c': 20,'d': 200}
+d = d1.copy()
+d.update(d2)
+print(d)
+
+#8.Write a Python program to iterate over dictionaries using for loops.
+
+q = {'banan': 2,'kiwi': 5}
+for owoc_klucz, liczba in q.items():
+    print(owoc_klucz, 'liczba:', q[owoc_klucz])
+
+#9.Write a Python program to multiply all the items in a dictionary.
+podstawa = {'liczba': 1,'liczba1': 2,'liczba3': 3}
+wynik = 1
+for klucz in podstawa:
+    wynik = wynik * podstawa[klucz]
+print(wynik)
+
+#10. Write a Python program to remove a key from a dictionary.
+q = {'z': 1,'x': 2,'c':3}
+print(q)
+if 'z' in q:
+    del q['z']
+print(q)
+
+#11. Write a Python program to map two lists into a dictionary.
+woda = {'smaczna','obrzydliwa','jakotaka'}
+cena = {'wysoka','Niska','w sam raz'}
+wynik = dict(zip(woda, cena))
+print(wynik)
+
+#12 Write a Python program to sort a given dictionary by key
+wynik = {
+    'malo': 1,
+    'srednio': 2,
+    'duzo': 3
+}
+for klucze in sorted(wynik):
+    print("%s:%s" % (klucze,wynik[klucze]))
+
+#13 Write a Python program to get the maximum and minimum values of a dictionary.
+potrzeba = {'a': 10, 'b': 20, 'c': 30}
+klucz_max = max(potrzeba.keys(), key=(lambda k: potrzeba[k]))
+klucz_min = min(potrzeba.keys(), key=(lambda k: potrzeba[k]))
+print("Nasz dziwny max to: ", potrzeba[klucz_max])
+print("Nasz dziwny minimum to: ", potrzeba[klucz_min])
+
+#14. Write a Python program to check if a dictionary is empty or not.
+prosba = {}
+if not bool(prosba):
+    print("pustostan")
+
+#15.Write a Python program to combine two dictionary by adding values for common keys.
+
+from collections import Counter
+d1 = {'a': 100, 'b': 200, 'c': 300}
+d2 = {'a': 300, 'b': 200, 'd': 400}
+d = Counter(d1) + Counter(d2)
+print(d)
+
+#16. Write a Python program to find the highest 3 values of corresponding keys in a dictionary.
+
+from heapq import nlargest
+
+my_dict = {'a': 500, 'b': 5874, 'c': 560, 'd': 400, 'e': 5874, 'f': 20}
+three_largest = nlargest(3, my_dict, key=my_dict.get)
+print(three_largest)
+
+#17. Write a Python program to convert a list into a nested dictionary of keys.
+lista = [1,3,2,4]
+dikt = wynik = {}
+for cyfra in lista:
+    wynik[cyfra] = {}
+    wynik = wynik[cyfra]
+print(dikt)
+
+#18. Write a Python program to count the number of items in a dictionary value that is a list.
+wartosc = {'Andrzej': ['cos','cos1','cos2'], 'Andrew': ['ano','ano1','ano2']} 
+cos = sum(map(len, wartosc.values()))
+print(cos)
+
+#19. Write a Python program to sort Counter by value.
+from collections import Counter
+x = Counter({'mateusz': 28,'monika':30})
+print(x.most_common())
+
+#20. Write a Python program to print a dictionary line by line.
+rodzinka = {'Andrzej': {'zawod': 'ojciec', 'kierunek':'wszechswiat'}, 'Marjola': {'zawod':'kosmonauta', 'kierunek':'nieznany'}}
+for a in rodzinka:
+    print(a)
+
+    for b in rodzinka[a]:
+        print(b, ":", rodzinka[a][b])
