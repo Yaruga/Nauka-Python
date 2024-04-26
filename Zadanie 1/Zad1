@@ -1,0 +1,189 @@
+#1.Write a Python program to calculate the length of a string.
+def dlugosc(string):
+    znaki = 0
+    for cokolwiek in string:
+        znaki +=1
+    return znaki
+print(dlugosc("ala ma kota"))
+
+#2.Write a Python program to count the number of characters (character frequency) in a string. 
+def odpowiedz(wartosc):
+    dict = {}
+    for g in wartosc:
+        klucz = dict.keys()
+        if g in klucz:
+            dict[g] += 1
+        else:
+            dict[g] = 1
+    return dict
+print(odpowiedz('ala ma kota a kot ma ale'))
+
+#3.Write a Python program to get a string made of the first 2 and last 2 characters of a given string. If the string length is less than 2, return the empty string instead. 
+def string(cos):
+    if len(cos) < 2:
+        return ''
+    return cos[0:2] + cos[-2:]
+
+print(string('alamakota'))
+print(string('al'))
+print(string('a'))
+
+#4.Write a Python program to get a string from a given string where all occurrences of its first char have been changed to '$', except the first char itself
+def funkcja(zmiana):
+    zamieniamy = zmiana[0]
+    zmiana = zmiana.replace(zamieniamy, "$")
+    zmiana = zamieniamy + zmiana[1:]
+    return zmiana
+
+print(funkcja("restart"))
+
+#5.Write a Python program to get a single string from two given strings, separated by a space and swap the first two characters of each string.
+
+def mix(a,b):
+    zamiana_a = b[:2] + a[2:]
+    zmiana_b = a[:2] + b[2:]
+    return zamiana_a + " " + zmiana_b
+print(mix('zaq', 'edc')) 
+
+#6. Write a Python program to add 'ing' at the end of a given string (length should be at least 3). If the given string already ends with 'ing' then add 'ly' instead. 
+#If the string length of the given string is less than 3, leave it unchanged.
+
+def stworzenie(numer):
+    długosc = len(numer)
+    if długosc > 2:
+        if numer[-3:] == 'ing':
+            numer += 'ly'
+        else:
+            numer = 'ing'
+    return numer
+
+print(stworzenie('ab'))
+print(stworzenie('abc'))
+print(stworzenie('string'))
+
+#7.Write a Python program to find the first appearance of the substrings 'not' and 'poor' in a given string.
+#If 'not' follows 'poor', replace the whole 'not'...'poor' substring with 'good'. Return the resulting string.
+
+def funkcja(zmiana):
+    z_not = zmiana.find('not')
+    z_poor = zmiana.find('poor')
+    if z_poor > z_not and z_not > 0 and z_poor > 0:
+        zmiana = zmiana.replace(zmiana[z_not:(z_poor + 4)], 'good')
+        return zmiana
+    else:
+        return zmiana
+
+print(funkcja("Zmienna jest not taka poor"))
+print(funkcja('Jest to troche poor'))
+
+#8. Write a Python function that takes a list of words and return the longest word and the length of the longest one. 
+def znajdź_długie(najdluzsza):
+    dlugosc_slowa = []
+    for w in najdluzsza:
+        dlugosc_slowa.append((len(w),w))
+        dlugosc_slowa.sort()
+        return dlugosc_slowa[-1][0], dlugosc_slowa[-1][1]
+efekt = znajdź_długie(['Wolnemularstwo(masoneria)', 'Templariusze','Katolicy'])
+print('najdłuższe słowo: ', efekt[1])
+print('Ilość liter: ', efekt[0])
+
+#9.Write a Python program to remove the nth index character from a nonempty string.
+
+def usun(to, n):
+    pierwsze = to[:n]
+    drugie = to[n + 1:]
+    return pierwsze + drugie
+print(usun('Cokolwiek', 0))
+print(usun('Cokolwiek', 3))
+print(usun('Cokolwiek', 5))
+
+#10. Write a Python program to change a given string to a newly string where the first and last chars have been exchanged.
+
+def zmiana(jedyneczka):
+    return jedyneczka[-1:] + jedyneczka[1:-1] + jedyneczka[:1]
+print(zmiana('asdfwefd'))
+print(zmiana('2341234234'))
+
+#11. Write a Python program to remove characters that have odd index values in a given string.
+def dodawanie(to):
+    wynik = ""
+    for w in range(len(to)):
+        if w % 2 == 0:
+            wynik = wynik + to[w]
+    return wynik
+print(dodawanie('cokolwiek'))
+print(dodawanie('Cokolwiek'))
+
+#12. Write a Python program to count the occurrences of each word in a given sentence.
+def liczenie(to):
+    liczba = dict()
+    slowa = to.split()
+    for slo in slowa:
+        if slo in liczba:
+            liczba[slo] +=1
+        else:
+            liczba[slo] = 1
+    return liczba
+print(liczenie('Stwórzmy państwo dostatenie, niee państwo z papieru'))
+
+#13. Write a Python script that takes input from the user and displays that input back in upper and lower cases.
+
+wpisane = input("Moją zajawką jest? ")
+print('Moja zajawka to? ', wpisane.upper())
+print('Moja zajawka to? ', wpisane.lower())
+
+#14. Write a Python program that accepts a comma-separated sequence of words as input and prints the distinct words in sorted form (alphanumerically). 
+glowny = input('Wykonanie zadania')
+slowo = [slo for slo in glowny.split(",")]
+print(",".join(sorted(list(slowo))))
+
+#15. Write a Python function to create an HTML string with tags around the word(s). 
+
+def dodanie(tag, slowo):
+    return "<%s>%s</%s>" % (tag, slowo, tag)
+print(dodanie('i', 'Python'))
+print(dodanie('b','Python szkoelnie'))
+
+#16. Write a Python function to insert a string in the middle of a string.
+
+def srodek(stringm, slowo):
+    return stringm[:2] + slowo + stringm[2:]
+print(srodek('[[]]', 'Cokolwiek'))
+print(srodek('{{}}', 'Cokowiek'))
+print(srodek('<<>>', 'Cokolwiek'))
+
+#17. Write a Python function to get a string made of 4 copies of the last two characters of a specified string (length must be at least 2).
+
+def koniec(to):
+    to_nie = to[-2:]
+    return to_nie * 4
+print(koniec('Woda'))
+print(koniec('Ogien'))
+
+#18. Write a Python function to get a string made of the first three characters of a specified string. If the length of the string is less than 3, return the original string.
+
+def pierwsz(to):
+    if len(to) > 3:
+        return to[:3]
+    else:
+        return to
+print(pierwsz('Co'))
+print(pierwsz('Cokolwiek'))
+print(pierwsz('ek'))
+
+# 19. Write a Python program to get the last part of a string before a specified character.
+
+pierwszy = 'Cokolwiek jest tutaj wpisane/nie jest wpisane - a moze jest'
+print(pierwszy.rsplit('/',1)[0])
+print(pierwszy.rsplit('-',1)[0])
+
+#20. Write a Python function to reverse a string if its length is a multiple of 4.
+
+def zmiana(to):
+    if len(to) % 4 == 0:
+        return ''.join(reversed(to))
+    return to
+print(zmiana('Cokolwiek'))
+print(zmiana('Cokolwie'))
+
+

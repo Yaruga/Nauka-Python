@@ -1,0 +1,9 @@
+#20. Write a Python function to reverse a string if its length is a multiple of 4.
+
+def zmiana(to):
+    if len(to) % 4 == 0:
+        return ''.join(reversed(to))
+    return to
+print(zmiana('Cokolwiek'))
+print(zmiana('Cokolwie'))
+    
