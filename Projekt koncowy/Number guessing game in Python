@@ -1,0 +1,53 @@
+#Build a Number guessing game, in which the user selects a range.
+
+import random
+import math
+
+total_games = 0  # Zmienna przechowująca łączną ilość gier
+total_correct_guesses = 0  # Zmienna przechowująca łączną ilość poprawnych odpowiedzi
+total_incorrect_guesses = 0  # Zmienna przechowująca łączną ilość niepoprawnych odpowiedzi
+
+while True:
+    total_games += 1  # Aktualizujemy łączną ilość gier po rozpoczęciu nowej gry
+
+    lower = int(input("Wprowadź dolną granice: "))
+    upper = int(input("Wprowadź górną granice: "))
+    
+    x = random.randint(lower, upper)
+    print("\n\tMasz tylko ", 
+          round(math.log(upper - lower + 1, 2)),
+          " szans na znalezienie cyfry!\n")
+    
+    count = 0
+    correct_guess = False
+    
+    while count < math.log(upper - lower + 1, 2):
+        count += 1
+    
+        guess = int(input("Liczba o której myślisz to:- "))
+    
+        if x == guess:
+            print("Brawo! Udało Ci się w ",
+                  count, " próbach")
+            correct_guess = True
+            total_correct_guesses += 1
+            break
+        elif x > guess:
+            print("Za nisko!")
+        elif x < guess:
+            print("Za wysoko!")
+    
+    if not correct_guess:
+        total_incorrect_guesses += 1
+    
+    if count >= math.log(upper - lower + 1, 2):
+        print("\nPoszukiwania cyfra to %d" % x)
+        print("\tNastepnym razem dasz radę!")
+    
+    play_again = input("Czy chcesz zagrać ponownie? (t/n): ")
+    if play_again.lower() != 't':
+        break
+
+print("Łączna ilość przeprowadzonych gier:", total_games)
+print("Łączna ilość poprawnych odpowiedzi:", total_correct_guesses)
+print("Łączna ilość niepoprawnych odpowiedzi:", total_incorrect_guesses)
